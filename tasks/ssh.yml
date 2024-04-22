@@ -1,3 +1,5 @@
+# pas sûr de comprendre s'il y a des choses que je devrais modifier, en particulier la copie du .ssh/config
+# je pense que le config sera géré dans le deuxième étape ici
 - name: Ensure .ssh directory exists.
   file:
     dest: "{{ dest_key | dirname }}"
@@ -29,6 +31,7 @@
   authorized_key:
     user: "{{ lookup('env', 'USER') }}"
     state: present
+      # pourquoi id_rsa et pas *.pub ?
     key: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa.pub"
   with_fileglob:
   - "{{ lookup('env', 'HOME') }}/.ssh/*.pub"
