@@ -1,5 +1,7 @@
 # TODO:
 **Le TODO.md est réalisé par l'auteur initial.**
+TODO :
+- add at the end of .bashrc : exec zsh - which seems to be necessary to make sure that zsh becomes default shell
 
 Questions 
 - l'installation se fait pour un ubuntu, est-ce ok sur debian ?
