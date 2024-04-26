@@ -1,3 +1,4 @@
+# TODO: use the latest version and ansible-run-python.sh
 FROM ubuntu:focal
 ARG TAGS
 WORKDIR /usr/local/bin
