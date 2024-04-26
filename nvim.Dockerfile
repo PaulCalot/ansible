@@ -1,4 +1,5 @@
 # TODO: use the latest version and ansible-run-python.sh
+# To do that, we have to wait for portage on 24.04 I believe
 FROM ubuntu:focal
 ARG TAGS
 WORKDIR /usr/local/bin
