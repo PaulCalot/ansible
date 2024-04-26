@@ -1,7 +1,9 @@
 #!/bin/bash
-
 sudo apt update -y
-sudo apt install -y python3 python3-pip
-sudo pip3 install pipx
+sudo apt-get install git-all
+# pipx
+sudo apt install pipx
 pipx ensurepath
-pipx install ansible
+sudo pipx ensurepath --global
+# ansible
+pipx install --include-deps ansible
