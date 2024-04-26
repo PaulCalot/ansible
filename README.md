@@ -2,6 +2,7 @@
 **Le TODO.md est réalisé par l'auteur initial.**
 TODO :
 - add at the end of .bashrc : exec zsh - which seems to be necessary to make sure that zsh becomes default shell
+- ajouter également les tags dans le local.yml, en effet, s'ils ne sont pas présents à cet endroit, aucun n'est joué, même si les sous-taches ont ces tags... 
 
 Questions 
 - l'installation se fait pour un ubuntu, est-ce ok sur debian ?
