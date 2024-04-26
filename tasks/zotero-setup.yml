@@ -1,0 +1,51 @@
+- name: Delete zotero
+  become: true
+  shell: rm -rf ~/opt/zotero
+  tags:
+    - install
+    - zotero
+
+- name: Mkdir zotero
+  become: true
+  shell: mkdir -p ~/opt/zotero
+  tags:
+    - install
+    - zotero
+
+- name: Download and extract Zotero tarball
+  become: true
+  unarchive:
+    src: "https://www.zotero.org/download/client/dl?channel=release&platform=linux-x86_64&version=6.0.35"
+    dest: ~/opt/zotero
+    remote_src: yes
+    extra_opts: [--strip-components=1]
+  tags:
+    - install
+    - zotero
+
+- name: Set launcher icon
+  become: true
+  command: ~/opt/zotero/set_launcher_icon
+  tags:
+    - install
+    - zotero
+
+- name: Ensure ~/.local/share/applications directory exists
+  become: true
+  file:
+    path: ~/.local/share/applications
+    state: directory
+    mode: '0755'
+  tags:
+    - install
+    - zotero
+
+- name: Create symlink for Zotero desktop file
+  become: true
+  file:
+    src: ~/opt/zotero/zotero.desktop
+    dest: ~/.local/share/applications/zotero.desktop
+    state: link
+  tags:
+    - install
+    - zotero

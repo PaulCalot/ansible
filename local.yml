@@ -14,18 +14,29 @@
       - install
       - core
   tasks:
-    - include: tasks/ssh.yml
-    - include: tasks/git-setup.yml
-    - include: tasks/core-setup.yml
-    # - include: tasks/node-setup.yml
-    # - include: tasks/npm-packages.yml
-    - include: tasks/zsh-setup.yml
-    - include: tasks/slack-setup.yml
+    - include_tasks: tasks/ssh.yml
+    - include_tasks: tasks/git-setup.yml
+    - include_tasks: tasks/core-setup.yml
+    # - include_tasks: tasks/node-setup.yml
+    # - include_tasks: tasks/npm-packages.yml
+    - include_tasks: tasks/zsh-setup.yml
+    - include_tasks: tasks/slack-setup.yml
     # pour l'instant je n'ai pas de projets perso que je voudrais download toujours
-    # - include: tasks/personal-projects.yml
-    - include: tasks/nvim-setup.yml
-    # - include: tasks/brave.yml
-    # - include: tasks/debugger.yml
-    - include: tasks/dotfiles.yml
-    - include: tasks/productivity-tools.yml
-    # - include: tasks/lsp.yml
+    # - include_tasks: tasks/personal-projects.yml
+    - include_tasks: tasks/nvim-setup.yml
+    # - include_tasks: tasks/brave.yml
+    # - include_tasks: tasks/debugger.yml
+    - include_tasks: tasks/dotfiles.yml
+    - include_tasks: tasks/python-setup.yml
+    - include_tasks: tasks/productivity-tools.yml
+    - include_tasks: tasks/zotero-setup.yml
+    # - include_tasks: tasks/lsp.yml
+    # ADD installations of :
+    # - miniconda, and the env. I should use
+    # - better nvim-setup (that would mean I go on to use the kickstart and not lvim) 
+    # - zotero or something
+    # - vlc may be ? (I don't believe it is installed by default here)
+  handlers:
+    - name: Update desktop database
+      command: update-desktop-database ~/.local/share/applications
+      listen: "desktop database update"

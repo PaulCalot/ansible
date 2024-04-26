@@ -1,0 +1,37 @@
+- name: Installing stow
+  apt: name=stow
+  tags:
+    - install
+    - dotfiles
+    - stow
+- name: remove .dotfiles
+  shell: rm -rf "{{ lookup('env', 'HOME') }}/.dotfiles"
+  tags:
+    - install
+    - dotfiles
+    - stow
+- name: Cloning .dotfiles
+  ansible.builtin.git:
+    repo: 'git@github.com:PaulCalot/.dotfiles.git'
+    dest: "{{ lookup('env', 'HOME') }}/.dotfiles"
+    recursive: yes
+    update: yes
+    accept_hostkey: yes
+    version: master
+  tags:
+    - install
+    - dotfiles
+    - stow
+- name: Remove .zshrc before stow
+  shell: rm "{{ lookup('env', 'HOME') }}/.zshrc"
+# here we effectively call the ubuntu script of the .dotfiles repo
+# however, .zshrc already exist
+# so it won't symlink it ... I have to delete it before hand it seems
+# that is, If I understand the problem corretly
+# there may be others
+- name: Stow dotfiles
+  shell: cd $HOME/.dotfiles && ./ubuntu
+  tags:
+    - install
+    - dotfiles
+    - stow

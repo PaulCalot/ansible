@@ -1,0 +1,17 @@
+- name: Remove neovim
+  shell: rm -rf ~/nvim
+  tags:
+    - install
+    - neovim
+- name: Remove neovim config
+  shell: rm -rf ~/.config/nvim
+  tags:
+    - install
+    - neovim
+- name: Get Kickstart 
+  ansible.builtin.git:
+    repo: 'https://github.com/PaulCalot/kickstart.nvim.git'
+    dest: "{{ lookup('env', 'HOME') }}/.config/nvim"
+  tags:
+    - install
+    - neovim

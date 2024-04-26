@@ -19,6 +19,7 @@ Notes :
 
 # Utilisation
 Attention : il faut avoir setup son répertoire de dotfiles avant.
+Egalement, il semblerarit que
 
 Pour installer ansible, cf. le bash script [install](install):
 ```shell
@@ -31,6 +32,9 @@ ansible-playbook -t dotfiles local.yml --ask-become-pass --ask-vault-pass
 ```
 
 # Dev - docker
+Attention : l'utilisation du script build-dockers ne fonctionne pas lorsque connecté au vpn / réseau de l'entreprise, certainement bloqué par le pare-feu ou à cause de problèmes de DNS.
+Je n'ai pas cherché de fix, la solution est de faire tourner le script à partir d'un partage de connexion de son portable. 
+
 ```shell
 ./build-dockers
 docker run --rm -it new-computer bash 

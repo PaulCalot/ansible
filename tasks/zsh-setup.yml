@@ -8,8 +8,7 @@
 
 - name: Check that the somefile.conf exists
   stat:
-  # path: /home/theprimeagen/.oh-my-zsh
-  path: ~/.oh-my-zsh
+    path: ~/.oh-my-zsh
   register: oh_my_stats
   tags: *tags_for_zsh_tasks
 
@@ -25,4 +24,17 @@
   ansible.builtin.git:
     repo: 'https://github.com/zsh-users/zsh-autosuggestions.git'
     dest: "~/.oh-my-zsh/plugins/zsh-autosuggestions"
+  tags: *tags_for_zsh_tasks
+
+- name: Install zsh-syntax-highlighting
+  ansible.builtin.git:
+    repo: 'https://github.com/zsh-users/zsh-syntax-highlighting.git'
+    dest: "~/.oh-my-zsh/plugins/zsh-syntax-highlighting"
+  tags: *tags_for_zsh_tasks
+
+- name: Install theme PowerLevel10k 
+  ansible.builtin.git:
+    repo: 'https://github.com/romkatv/powerlevel10k.git'
+    dest: "~/.oh-my-zsh/custom/themes/powerlevel10k"
+    depth: 1
   tags: *tags_for_zsh_tasks
