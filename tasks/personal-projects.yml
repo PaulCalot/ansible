@@ -10,7 +10,7 @@
 - name: vaults installation 
   ansible.builtin.git:
     repo: 'git@github.com:PaulCalot/obsidian-vaults.git'
-    bare: true
+    # bare: true
     dest: "{{ personal }}/vaults"
   tags:
     - install
