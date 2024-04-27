@@ -1,4 +1,4 @@
-- name: obsidian exists
+- name: vaults exists
   stat:
     path: "{{ personal }}/vaults"
   register: vaults 
@@ -7,7 +7,7 @@
     - dotfiles
     - neovim
     - personal-project
-- name: Personal Project Harpoon
+- name: vaults installation 
   ansible.builtin.git:
     repo: 'git@github.com:PaulCalot/obsidian-vaults.git'
     bare: true
