@@ -15,10 +15,6 @@
   register: oh_my_stats
   tags: *tags_for_zsh_tasks
 
-- name: remove Oh-My-Zsh
-  shell: rm -rf ~/.oh-my-zsh/
-  tags: *tags_for_zsh_tasks
- 
 - name: Oh-My-Zsh
   shell: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh > ~/.oh-my-installer && chmod +x ~/.oh-my-installer && ~/.oh-my-installer
   tags: *tags_for_zsh_tasks
