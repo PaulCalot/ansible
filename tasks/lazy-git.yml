@@ -28,10 +28,9 @@
   become: true
   unarchive:
     src: "/tmp/lazygit.tar.gz"
-    dest: "/tmp"
+    dest: "/tmp/lazygit"
     remote_src: yes
     extra_opts: [--strip-components=1]
-    creates: "/tmp/lazygit"
   tags:
     - install
     - lazygit
