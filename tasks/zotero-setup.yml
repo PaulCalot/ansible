@@ -1,16 +1,18 @@
-- name: Delete zotero
-  become: true
-  shell: rm -rf ~/opt/zotero
+# TODO coulds be cleaned up a bit I believe
+- name: zotero exists
+  stat:
+    path: "{{ lookup('env', 'HOME') }}/opt/zotero"
+  register: zotero
   tags:
     - install
     - zotero
 
-- name: Mkdir zotero
-  become: true
-  shell: mkdir -p ~/opt/zotero
-  tags:
-    - install
-    - zotero
+- name: Create zotero directory if it does not exist
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/opt/zotero"
+    state: directory
+    mode: '0755'
+  when: zotero.stat.exists == False
 
 - name: Download and extract Zotero tarball
   become: true
@@ -22,6 +24,7 @@
   tags:
     - install
     - zotero
+  when: zotero.stat.exists == False
 
 - name: Set launcher icon
   become: true
@@ -29,6 +32,7 @@
   tags:
     - install
     - zotero
+  when: zotero.stat.exists == False
 
 - name: Ensure ~/.local/share/applications directory exists
   become: true
@@ -39,6 +43,7 @@
   tags:
     - install
     - zotero
+  when: zotero.stat.exists == False
 
 - name: Create symlink for Zotero desktop file
   become: true
@@ -49,3 +54,4 @@
   tags:
     - install
     - zotero
+  when: zotero.stat.exists == False

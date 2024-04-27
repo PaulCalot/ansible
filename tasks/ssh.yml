@@ -1,5 +1,4 @@
-# pas sûr de comprendre s'il y a des choses que je devrais modifier, en particulier la copie du .ssh/config
-# je pense que le config sera géré dans le deuxième étape ici
+# TODO: re-add authorized keys
 - name: Ensure .ssh directory exists.
   file:
     dest: "{{ dest_key | dirname }}"
@@ -41,3 +40,9 @@
 #     key: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa.pub"
 #   with_fileglob:
 #   - "{{ lookup('env', 'HOME') }}/.ssh/*.pub"
+- name: HTTPS->SSH for .dotfiles
+  shell: git remote set-url origin git@github.com:PaulCalot/ansible.git
+  tags:
+    - dotfiles
+    - install
+    - ssh

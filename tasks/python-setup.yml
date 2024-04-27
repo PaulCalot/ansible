@@ -1,19 +1,22 @@
-# python already installed
-- name: Remove miniconda 
-  shell: rm -rf ~/miniconda3
+# TODO: it could certainly be cleaned up a bit (don't use ~)
+# python already installed
+- name: miniconda config exists
+  stat:
+    path: "{{ lookup('env', 'HOME') }}/miniconda"
+  register: miniconda
   tags:
     - install
-    - python 
+    - python
+
+# TODO: I believe mkdir like this is not the way to go in ansible, use file
 - name: Install miniconda 
   shell: mkdir -p ~/miniconda3 && wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh && bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3 && rm -rf ~/miniconda3/miniconda.sh
   tags:
     - install
     - python
+
 - name: Init conda
   shell: ~/miniconda3/bin/conda init zsh
   tags:
     - install
     - python
-# TODO: if I do things correclty, my .zshrc should come with the export for the conda variable...
-# then I should add a directy with some default environnemnt like : data-science, etc.
-# TODO: should certainly also review the .zshrc has in it the conda handled script and all.. here I try to re-init it
