@@ -28,10 +28,10 @@
   become: true
   unarchive:
     src: "/tmp/lazygit.tar.gz"
-    dest: "{{ lookup('env', 'HOME') }}/lazygit"
+    dest: "{{ lookup('env', 'HOME') }}"
     remote_src: yes
-    extra_opts: [--strip-components=1]
-    creates: "{{ lookup('env', 'HOME') }}/lazygit"
+    # should not be necessary
+    extra_opts: [--strip-components=0]
   tags:
     - install
     - lazygit
