@@ -44,6 +44,10 @@
       tags:
         - install
         - neovim
+    - include_tasks: tasks/lazy-git.yml
+      tags:
+        - install
+        - lazygit 
     - include_tasks: tasks/dotfiles.yml
       tags:
         - install
