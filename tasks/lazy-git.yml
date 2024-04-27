@@ -19,25 +19,31 @@
 - name: Download the latest lazygit tarball
   get_url:
     url: "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_{{ lazygit_release.json.tag_name[1:] }}_Linux_x86_64.tar.gz"
-    dest: "/tmp/lazygit.tar.gz"
+    dest: "lazygit.tar.gz"
   tags:
     - install
     - lazygit
 
 - name: Extract lazygit from tarball
   unarchive:
-    src: "/tmp/lazygit.tar.gz"
-    dest: "/tmp"
+    src: "lazygit.tar.gz"
+    dest: "lazygit"
     remote_src: yes
     extra_opts: [--strip-components=1]
-    creates: "/tmp/lazygit"
+    # creates: "lazygit"
   tags:
     - install
     - lazygit
 
 - name: Install lazygit binary to /usr/local/bin
   become: true
-  command: install /tmp/lazygit /usr/local/bin
+  command: install lazygit /usr/local/bin
+  tags:
+    - install
+    - lazygit
+
+- name: clean lazygit 
+  shell: rm lazygit.tar.gz
   tags:
     - install
     - lazygit
