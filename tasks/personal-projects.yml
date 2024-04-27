@@ -1,0 +1,30 @@
+- name: obsidian exists
+  stat:
+    path: "{{ personal }}/obsidian-vaults"
+  register: obsidian-vaults 
+  tags:
+    - install
+    - dotfiles
+    - neovim
+    - personal-project
+- name: Personal Project Harpoon
+  ansible.builtin.git:
+    repo: 'git@github.com:PaulCalot/obsidian-vaults.git'
+    bare: true
+    dest: "{{ personal }}/obsidian-vaults"
+  tags:
+    - install
+    - dotfiles
+    - neovim
+    - personal-project
+  when: obsidian-vaults.stat.exists == False
+# je le garde car c'est intéressant pour l'utilité des worktree
+# et pour plus tard
+# - name: Harpoon Master Checkout
+#   shell: cd ~/personal/harpoon && git fetch && git worktree add master master
+#   tags:
+#     - install
+#     - dotfiles
+#     - neovim
+#     - personal-project
+#   when: harpoon.stat.exists == False
