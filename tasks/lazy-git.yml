@@ -28,17 +28,17 @@
   become: true
   unarchive:
     src: "/tmp/lazygit.tar.gz"
-    dest: "lazygit"
+    dest: "{{ lookup('env', 'HOME') }}/lazygit"
     remote_src: yes
     extra_opts: [--strip-components=1]
-    creates: "lazygit"
+    creates: "{{ lookup('env', 'HOME') }}/lazygit"
   tags:
     - install
     - lazygit
 
 - name: Install lazygit binary to /usr/local/bin
   become: true
-  command: install lazygit /usr/local/bin
+  command: install {{ lookup('env', 'HOME') }}/lazygit /usr/local/bin
   tags:
     - install
     - lazygit
