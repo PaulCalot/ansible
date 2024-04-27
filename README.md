@@ -16,6 +16,8 @@ TODO :
 - [ ] Regarder les adaptations qui seraient nécessaires pour Debian
 - [ ] (optionnel) Regarder les adaptations qui seraient nécessaires pour Windows
 - [ ] (très optionnel) Regarder les adaptations qui seraient nécessaires pour Mac OS
+- [ ] peut être ajouter zotero dans le Main Menu ?
+- [ ] ajouter agent (UHK)
 
 Autre :
 - [ ] à quoi sert le package-lock.json ? sans doute le même intérêt que le fichier du même nom sur les projets js
