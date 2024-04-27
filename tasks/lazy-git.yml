@@ -36,6 +36,7 @@
     - lazygit
 
 - name: Install lazygit binary to /usr/local/bin
+  become: true
   command: install /tmp/lazygit /usr/local/bin
   tags:
     - install
