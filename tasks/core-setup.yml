@@ -21,7 +21,7 @@
   apt:
     # name: [ "compton", "curl", "htop", "golang", "lsof", "i3", "ccache", "ninja-build", "python3-pip", "dconf-editor", "nvidia-settings", "pavucontrol", "moreutils", "clangd", "ubuntu-mate-desktop" ]
     # je laisse moreutils, car il contient parallel pratique pour lancer plusieurs jobs en parallèle (le même)
-    name: [ "curl", "htop", "lsof", "i3", "python3-pip", "pavucontrol", "moreutils", "ripgrep", "vlc" ]
+    name: [ "curl", "htop", "lsof", "i3", "python3-pip", "pavucontrol", "moreutils", "ripgrep" ]
   tags:
     - install
     - core
