@@ -41,7 +41,7 @@
 #   with_fileglob:
 #   - "{{ lookup('env', 'HOME') }}/.ssh/*.pub"
 - name: HTTPS->SSH for .dotfiles
-  shell: cd "{{ lookup('env', 'HOME') }}/ansible && git remote set-url origin git@github.com:PaulCalot/ansible.git
+  shell: cd "{{ lookup('env', 'HOME') }}/ansible" && git remote set-url origin git@github.com:PaulCalot/ansible.git
   tags:
     - dotfiles
     - install
