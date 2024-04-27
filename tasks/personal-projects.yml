@@ -1,7 +1,7 @@
 - name: obsidian exists
   stat:
-    path: "{{ personal }}/obsidian-vaults"
-  register: obsidian-vaults 
+    path: "{{ personal }}/vaults"
+  register: vaults 
   tags:
     - install
     - dotfiles
@@ -11,13 +11,13 @@
   ansible.builtin.git:
     repo: 'git@github.com:PaulCalot/obsidian-vaults.git'
     bare: true
-    dest: "{{ personal }}/obsidian-vaults"
+    dest: "{{ personal }}/vaults"
   tags:
     - install
     - dotfiles
     - neovim
     - personal-project
-  when: obsidian-vaults.stat.exists == False
+  when: vaults.stat.exists == False
 # je le garde car c'est intéressant pour l'utilité des worktree
 # et pour plus tard
 # - name: Harpoon Master Checkout
