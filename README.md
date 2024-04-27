@@ -17,6 +17,7 @@ TODO :
 - [ ] (optionnel) Regarder les adaptations qui seraient nécessaires pour Windows
 - [ ] (très optionnel) Regarder les adaptations qui seraient nécessaires pour Mac OS
 - [ ] peut être ajouter zotero dans le Main Menu ?
+- [ ] ajoute des conda.yml ou similaires pour re-setup mes env virutels conda rapidement, ou alors le faire automatiquement lorsque je clone un projet ?
 - [ ] ajouter agent (UHK)
 
 Autre :
