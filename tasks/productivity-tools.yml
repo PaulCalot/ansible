@@ -1,7 +1,8 @@
 - name: Install packages
   become: true
+    # add drawio, Postman
   apt:
-    name: [ "tmux", "wireshark", "fzf", "kdenlive", "gimp", "xclip", "screenkey", "tldr", "ripgrep", "shutter" ]
+    name: [ "tmux", "wireshark", "fzf", "gimp", "xclip", "screenkey", "tldr", "ripgrep", "vlc"]
   tags:
     - install
     - productivity
