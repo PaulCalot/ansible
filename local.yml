@@ -15,27 +15,58 @@
       - core
   tasks:
     - include_tasks: tasks/ssh.yml
+      tags:
+        - dotfiles
+        - install
+        - ssh
     - include_tasks: tasks/git-setup.yml
+      tags:
+        - git-personal
+        - git-datanumia
     - include_tasks: tasks/core-setup.yml
+      tags:
+        - install
+        - neovim
+        - core
     # - include_tasks: tasks/node-setup.yml
     # - include_tasks: tasks/npm-packages.yml
     - include_tasks: tasks/zsh-setup.yml
+      tags:
+        - install
+        - productivity
+        - dotfiles
+        - zsh
     - include_tasks: tasks/slack-setup.yml
-    # pour l'instant je n'ai pas de projets perso que je voudrais download toujours
-    # - include_tasks: tasks/personal-projects.yml
+      tags:
+        - install
+        - slack
     - include_tasks: tasks/nvim-setup.yml
-    # - include_tasks: tasks/brave.yml
-    # - include_tasks: tasks/debugger.yml
+      tags:
+        - install
+        - neovim
     - include_tasks: tasks/dotfiles.yml
+      tags:
+        - install
+        - dotfiles
+        - stow
     - include_tasks: tasks/python-setup.yml
+      tags:
+        - install
+        - python 
     - include_tasks: tasks/productivity-tools.yml
+      tags:
+        - install
+        - productivity 
     - include_tasks: tasks/zotero-setup.yml
-    # - include_tasks: tasks/lsp.yml
-    # ADD installations of :
-    # - miniconda, and the env. I should use
-    # - better nvim-setup (that would mean I go on to use the kickstart and not lvim) 
-    # - zotero or something
-    # - vlc may be ? (I don't believe it is installed by default here)
+      tags:
+        - zotero
+        - install
+    - include_tasks: tasks/personal-projects.yml
+      tags:
+        - install
+        - dotfiles
+        - neovim
+        - personal-project
   handlers:
     - name: Update desktop database
       command: update-desktop-database ~/.local/share/applications
