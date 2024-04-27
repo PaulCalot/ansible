@@ -13,7 +13,7 @@ TODO :
 - [ ] le repo ansible est cloné en https, puisque le ssh n'est pas setup, il faudrait ajouter la modification de cela ensuite et le repasser en ssh
 - [ ] nettoyer ce qui peut l'être, notamment j'ai souvent ajouté des taches de suppression pour être sûr que ça n'échoue pas si je refais tourner une seconde fois, mais ce n'est pas la façon canonique de faire en ansible 
 - [ ] Ajouter à la fin du .bashrc `exec zsh` - chez moi changer le shell par défaut ne semblait pas fonctionner => à investiguer peut être
-- [ ] Regarder les adaptations qui seraient nécessaires pour Debian
+- [x] Regarder les adaptations qui seraient nécessaires pour Debian
 - [ ] (optionnel) Regarder les adaptations qui seraient nécessaires pour Windows
 - [ ] (très optionnel) Regarder les adaptations qui seraient nécessaires pour Mac OS
 - [ ] peut être ajouter zotero dans le Main Menu ?
