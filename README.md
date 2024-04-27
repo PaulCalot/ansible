@@ -19,6 +19,7 @@ TODO :
 - [ ] peut être ajouter zotero dans le Main Menu ?
 - [ ] ajoute des conda.yml ou similaires pour re-setup mes env virutels conda rapidement, ou alors le faire automatiquement lorsque je clone un projet ?
 - [ ] ajouter agent (UHK)
+- [ ] pour mes notes, ajouter un raccourci / bash script pour que dès que je l'ouvre j'ai un git pull / push - ainsi je suis toujours iso sur tous mes pc (enfin presque, il faudrait que quand je quitte j'ai la même chose: git pull quand j'arrive, push que je pars)
 
 Autre :
 - [ ] à quoi sert le package-lock.json ? sans doute le même intérêt que le fichier du même nom sur les projets js
