@@ -8,6 +8,7 @@ Adaptés à mes besoins et très simplifié pour le moment.
 Pour voir ce qui pourrait être nécessaire pour l'adaptater à ses besoins, se référer à la fin de ce document, la difficulté étant certainement de comprendre ce qui a été fait et de l'adapter à ses besoins.
 
 TODO :
+- [ ] Modifier .ssh/config - pour avoir dnt.com et pas .net
 - [ ] Revoir clean-env pour l'adapter à mes modifications
 - [ ] s'assurer que les taches sont effectuées dans le bon ordre 
 - [ ] le repo ansible est cloné en https, puisque le ssh n'est pas setup, il faudrait ajouter la modification de cela ensuite et le repasser en ssh
