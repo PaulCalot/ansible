@@ -8,18 +8,19 @@ Adaptés à mes besoins et très simplifié pour le moment.
 Pour voir ce qui pourrait être nécessaire pour l'adaptater à ses besoins, se référer à la fin de ce document, la difficulté étant certainement de comprendre ce qui a été fait et de l'adapter à ses besoins.
 
 TODO :
+- [ ] tester l'installation de nvim
 - [ ] Modifier .ssh/config - pour avoir dnt.com et pas .net
 - [ ] Revoir clean-env pour l'adapter à mes modifications
 - [ ] s'assurer que les taches sont effectuées dans le bon ordre 
 - [ ] le repo ansible est cloné en https, puisque le ssh n'est pas setup, il faudrait ajouter la modification de cela ensuite et le repasser en ssh
 - [ ] nettoyer ce qui peut l'être, notamment j'ai souvent ajouté des taches de suppression pour être sûr que ça n'échoue pas si je refais tourner une seconde fois, mais ce n'est pas la façon canonique de faire en ansible 
 - [ ] Ajouter à la fin du .bashrc `exec zsh` - chez moi changer le shell par défaut ne semblait pas fonctionner => à investiguer peut être
+- [ ] il doit y avoir qq chose qui ne fonctionne pas dans le zsh : le shell ne se lance pas par défaut et même quand je le lance, je n'ai pas les suggestions
 - [x] Regarder les adaptations qui seraient nécessaires pour Debian
 - [ ] (optionnel) Regarder les adaptations qui seraient nécessaires pour Windows
 - [ ] (très optionnel) Regarder les adaptations qui seraient nécessaires pour Mac OS
 - [ ] peut être ajouter zotero dans le Main Menu ?
 - [ ] ajoute des conda.yml ou similaires pour re-setup mes env virutels conda rapidement, ou alors le faire automatiquement lorsque je clone un projet ?
-- [ ] ajouter agent (UHK)
 - [ ] pour mes notes, ajouter un raccourci / bash script pour que dès que je l'ouvre j'ai un git pull / push - ainsi je suis toujours iso sur tous mes pc (enfin presque, il faudrait que quand je quitte j'ai la même chose: git pull quand j'arrive, push que je pars)
 
 Autre :
