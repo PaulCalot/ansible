@@ -1,3 +1,60 @@
+- name: Ensure build dependencies are installed
+  apt:
+    name:
+      - ninja-build
+      - gettext
+      - libtool
+      - libtool-bin
+      - autoconf
+      - automake
+      - cmake
+      - g++
+      - pkg-config
+      - unzip
+      - curl
+    state: present
+  tags:
+    - install
+    - neovim
+
+- name: Check if Neovim is already installed
+  command: nvim --version
+  register: nvim_check
+  ignore_errors: yes
+  tags:
+    - install
+    - neovim
+
+- name: Clone Neovim repository
+  git:
+    repo: 'https://github.com/neovim/neovim.git'
+    dest: /usr/local/src/neovim
+    version: 'v0.9.5'
+  when: nvim_check.rc != 0
+  tags:
+    - install
+    - neovim
+
+- name: Build Neovim from source
+  shell: |
+    make CMAKE_BUILD_TYPE=Release
+  args:
+    chdir: /usr/local/src/neovim
+  when: nvim_check.rc != 0
+  tags:
+    - install
+    - neovim
+
+- name: Install Neovim
+  shell: |
+    make install
+  args:
+    chdir: /usr/local/src/neovim
+  when: nvim_check.rc != 0
+  tags:
+    - install
+    - neovim
+
 - name: neovim config exists
   stat:
     path: "{{ lookup('env', 'HOME') }}/.config/nvim"
@@ -5,6 +62,7 @@
   tags:
     - install
     - neovim
+
 - name: neovim config installation 
   ansible.builtin.git:
     repo: 'git@github.com:PaulCalot/kickstart.nvim.git'
