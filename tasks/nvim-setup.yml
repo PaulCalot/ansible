@@ -13,6 +13,7 @@
       - unzip
       - curl
     state: present
+  become: yes
   tags:
     - install
     - neovim
@@ -29,8 +30,9 @@
   git:
     repo: 'https://github.com/neovim/neovim.git'
     dest: /usr/local/src/neovim
-    version: 'v0.9.5'
+    version: 'stable'
   when: nvim_check.rc != 0
+  become: yes
   tags:
     - install
     - neovim
@@ -41,6 +43,7 @@
   args:
     chdir: /usr/local/src/neovim
   when: nvim_check.rc != 0
+  become: yes
   tags:
     - install
     - neovim
@@ -51,6 +54,7 @@
   args:
     chdir: /usr/local/src/neovim
   when: nvim_check.rc != 0
+  become: yes
   tags:
     - install
     - neovim

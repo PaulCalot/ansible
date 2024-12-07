@@ -71,6 +71,12 @@
         - dotfiles
         - neovim
         - personal-project
+    - include_tasks: tasks/node-setup.yml
+      tags:
+        - install
+        - node
+        - neovim # required for certain neovim packages
+
   handlers:
     - name: Update desktop database
       command: update-desktop-database ~/.local/share/applications

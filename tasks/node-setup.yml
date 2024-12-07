@@ -1,0 +1,74 @@
+- name: Install dependencies for NVM
+  apt:
+    name:
+      - curl
+      - build-essential
+      - libssl-dev
+    state: present
+  become: true
+  tags:
+    - install
+    - node
+    - neovim
+
+- name: Install NVM
+  shell: |
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
+    echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.bashrc
+    echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> ~/.bashrc
+    echo '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"' >> ~/.bashrc
+  args:
+    executable: /bin/bash
+    creates: ~/.nvm
+  tags:
+    - install
+    - node
+    - neovim
+
+- name: Install Node.js using NVM
+  shell: |
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    nvm install 22
+  args:
+    executable: /bin/bash
+  tags:
+    - install
+    - node
+    - neovim
+
+- name: Verify Node.js version
+  shell: |
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    node -v
+  args:
+    executable: /bin/bash
+  register: node_version_output
+  tags:
+    - install
+    - node
+    - neovim
+
+- name: Verify npm version
+  shell: |
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    npm -v
+  args:
+    executable: /bin/bash
+  register: npm_version_output
+  tags:
+    - install
+    - node
+    - neovim
+
+- name: Print Node.js and npm versions
+  debug:
+    msg:
+      - "Node.js version: {{ node_version_output.stdout }}"
+      - "npm version: {{ npm_version_output.stdout }}"
+  tags:
+    - install
+    - node
+    - neovim
