@@ -46,6 +46,7 @@
 # make -C build install
 - name: Build Neovim from source
   shell: |
+    rm -rf build/ CMakeCache.txt
     make CMAKE_BUILD_TYPE=Release
   args:
     chdir: /usr/local/src/neovim
