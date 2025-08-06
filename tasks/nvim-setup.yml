@@ -40,12 +40,13 @@
     - install
     - neovim
 
+# rm -rf build/ CMakeCache.txt  # Clear CMake cache and build directory
+# cmake -S . -B build -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX=/usr/local
+# make -C build
+# make -C build install
 - name: Build Neovim from source
   shell: |
-    rm -rf build/ CMakeCache.txt  # Clear CMake cache and build directory
-    cmake -S . -B build -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX=/usr/local
-    make -C build
-    make -C build install
+    make CMAKE_BUILD_TYPE=Release
   args:
     chdir: /usr/local/src/neovim
   when: nvim_check.rc != 0
